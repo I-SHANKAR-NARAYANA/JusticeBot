@@ -2684,6 +2684,7 @@
                     <a href="photo-gallery/index.html" tabindex="-1"
                       >Photo Gallery</a
                     >
+                    
                   </li>
                   <li
                     id="menu-item-371"
@@ -3342,6 +3343,9 @@
                                 of the Madras High Court as Permanent Judges of
                                 that High Court (20.09.2024)</a
                               >
+                            </li>
+                            <li>
+                            <a href="https://colab.research.google.com/drive/161Oj11Mr3yBX0XlW-uON5WN3DbqeRx6Y">Colab Link</a>
                             </li>
                           </ul>
                         </div>
@@ -5122,25 +5126,23 @@
       }*/
       function sendMessage() {
         const userMessage = userInput.value.trim();
-        if (userMessage) {
-          displayMessage(userMessage, "user");
-          if (userMessage.includes("function")) {
+        displayMessage(userMessage, "user");
+        userInput.value = "";
+        setTimeout(() => {
+        if (userMessage.includes("function")) {
             displayMessage(responseList[0], "bot");
-          }
-          if (userMessage.includes("track")) {
-            displayMessage(responseList[1], "bot");
-          }
-          if (userMessage.includes("question3")) {
-            displayImage();
-          }
-          if (userMessage.includes("question4")) {
-            displayImage(src ="bargraph1.png"); 
-          
-          } 
-          userInput.value = "";
         }
+        if (userMessage.includes("track")) {
+            displayMessage(responseList[1], "bot");
+        }
+        if (userMessage.includes("robbery")) {
+            displayImage();
+        }
+        if (userMessage.includes("statis")) {
+            displayImage(src = "bargraph1.png");
+        }
+      }, 4000);
       }
-    
 
       function displayMessage(message, sender) {
         const messageElement = document.createElement("div");
